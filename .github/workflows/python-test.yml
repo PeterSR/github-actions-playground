@@ -28,4 +28,9 @@ jobs:
           coverage run --source=mymodule -m unittest
       - name: Test coverage
         run: |
-          coverage report
+          coverage report > coverage.txt
+      - name: Upload coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: coverage.txt
