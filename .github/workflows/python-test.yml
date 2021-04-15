@@ -26,11 +26,19 @@ jobs:
       - name: Python unit tests
         run: |
           coverage run --source=mymodule -m unittest
-      - name: Test coverage
+      - name: Test coverage (text)
         run: |
           coverage report > coverage.txt
-      - name: Upload coverage
+      - name: Test coverage (html)
+        run: |
+          coverage html
+      - name: Upload coverage (text)
         uses: actions/upload-artifact@v2
         with:
-          name: coverage
+          name: coverage-text
           path: coverage.txt
+      - name: Upload coverage (html)
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-html
+          path: htmlcov
