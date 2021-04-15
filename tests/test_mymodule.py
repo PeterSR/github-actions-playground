@@ -1,19 +1,17 @@
 from unittest import TestCase
 
 import numpy as np
-from scipy.interpolate import interp1d
+
+from mymodule.tools import something_numpy, something_scipy
 
 
-class DebugTest(TestCase):
+class MyModuleTest(TestCase):
 
     def test_numpy(self):
-        a = np.array([4, 4, 4])
+        a = something_numpy()
         b = np.ones(3) * 4
         self.assertTrue(np.all(a == b))
 
     def test_scipy(self):
-        x = [1, 3]
-        y = [1, 3]
-        f = interp1d(x, y)
-        v = f(2)
+        v = something_scipy()
         self.assertEqual(v, 2)
