@@ -3,5 +3,6 @@
 Run locally:
 
 ```shell
-python -m unittest
+coverage run --source=mymodule -m unittest
+coverage report
 ```
