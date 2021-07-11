@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: psr-github-actions-playground:latest
+          tags: ${{ secrets.DOCKER_REGISTRY_HOSTNAME }}/psr-github-actions-playground:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
